@@ -1,0 +1,159 @@
+<component name="FormApp">
+  <Card
+      title="Relim Demo"
+      bodyHeight="auto"
+      style={{ width: "100%" }}
+  >
+      <Step
+          current={1}
+          type="dot"
+          style={{
+              marginBottom: 50
+          }}
+      >
+          <Step.Item key="1" title="打开冰箱门" />
+          <Step.Item key="2" title="把大象放进冰箱" />
+          <Step.Item key="3" title="关上冰箱门" />
+      </Step>
+      <div id="container">
+          <div class="body">
+              <Form>
+                  <Form.Item
+                      label="供应商名称"
+                      labelCol={{
+                          span: 4
+                      }}
+                  >
+                      <Input
+                          {...fieldInit("suppilerName")}
+                          style={{
+                              width: 400
+                          }}
+                      />
+                  </Form.Item>
+                  <Form.Item label="供应商ID" labelCol={{ span: 4 }}>
+                      <Input
+                          style={{
+                              width: 400
+                          }}
+                      />
+                  </Form.Item>
+                  <Form.Item label="供应商名称" labelCol={{ span: 4 }}>
+                      <Input
+                          style={{
+                              width: 400
+                          }}
+                      />
+                  </Form.Item>
+                  <Form.Item label="供应商ID" labelCol={{ span: 4 }}>
+                      <Input style={{ width: 400 }} />
+                  </Form.Item>
+                  <Form.Item label="供应商名称" labelCol={{ span: 4 }}>
+                      <Input
+                          style={{
+                              width: 400
+                          }}
+                      />
+                  </Form.Item>
+                  <Form.Item label="供应商ID" labelCol={{ span: 4 }}>
+                      <Input style={{ width: 400 }} />
+                  </Form.Item>
+                  <Form.Item label="供应商名称" labelCol={{ span: 4 }}>
+                      <Input style={{ width: 400 }} />
+                  </Form.Item>
+                  <Form.Item
+                      label="供应商ID"
+                      labelCol={{
+                          span: 4
+                      }}
+                  >
+                      <Input
+                          style={{
+                              width: 400
+                          }}
+                      />
+                  </Form.Item>
+                  <Form.Item label="供应商名称" labelCol={{ span: 4 }}>
+                      <Input style={{ width: 400 }} />
+                  </Form.Item>
+                  <Form.Item label="供应商ID" labelCol={{ span: 4 }}>
+                      <Input style={{ width: 400 }} />
+                  </Form.Item>
+                  <Form.Item
+                      label="供应商名称"
+                      labelCol={{
+                          span: 4
+                      }}
+                  >
+                      <Input
+                          style={{
+                              width: 400
+                          }}
+                      />
+                  </Form.Item>
+                  <Form.Item label="供应商ID" labelCol={{ span: 4 }}>
+                      <Input
+                          style={{
+                              width: 400
+                          }}
+                      />
+                  </Form.Item>
+              </Form>
+              <div class="form-bottom">
+                  <Button size="large">提交</Button>
+                  <Button size="large">重置</Button>
+              </div>
+          </div>
+      </div>
+  </Card>
+  <style>
+      #container {
+          display: flex;
+          justify-content: center;
+      }
+      .form-bottom {
+          display: flex;
+          justify-content: center;
+      }
+      .form-bottom * {
+          margin: 0 5px;
+      }
+  </style>
+  <relim-script>
+      var Field = require("next-field")
+      module.exports = {
+          init() {
+              this.field = new Field(this, {
+                  onChange(name, value) {
+                      console.log(name, value)
+                  }
+              })
+          },
+          methods: {
+              fieldInit(name, options) {
+                  return this.field.init(name, options)
+              }
+          }
+      }
+  </relim-script>
+</component>
+<component name="Home">
+  <BizComponent />
+  <Card
+      title="Relim Demo"
+      bodyHeight="auto"
+      style={{
+          width: "100%"
+      }}
+  >
+  <p>这是Relim3.0结合RelimReactComponents的用例，主要涉及：</p>
+  <ul>
+  <li>Next基本组件的使用</li>
+  <li>NextForm结合NextField的使用</li>
+  <li>SchemaForm的使用</li>
+  <li>前端路由解决方案</li>
+  </ul>
+  <p></p>                
+  </Card>
+</component>
+<FormApp />

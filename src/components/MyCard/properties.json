@@ -1,0 +1,28 @@
+{
+  "name": "MyCard",
+  "dsl": "<MyCard />",
+  "description": "",
+  "schema": {
+    "propsSchema": {
+      "type": "object",
+      "title": "MyCard",
+      "properties": {
+        "text": {
+          "type": "string",
+          "title": "按钮",
+          "default": "确定"
+        }
+      }
+    },
+    "settings": {
+      "property": {
+        "settings": {
+          "text": {
+            "ui:placeholder": "请输入按钮文字"
+          }
+        },
+        "extend-field": {}
+      }
+    }
+  }
+}

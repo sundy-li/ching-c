@@ -1,0 +1,114 @@
+{
+  "name": "Test",
+  "dsl": "<Test />",
+  "description": "",
+  "schema": {
+    "propsSchema": {
+      "type": "object",
+      "title": "Test",
+      "properties": {
+        "text": {
+          "type": "string",
+          "title": "按钮",
+          "default": "确定"
+        },
+        "disabled": {
+          "type": "boolean",
+          "title": "是否禁用",
+          "default": false
+        },
+        "size": {
+          "type": "string",
+          "title": "按钮尺寸",
+          "enum": [
+            "default",
+            "small",
+            "large"
+          ],
+          "enumNames": [
+            "默认",
+            "小",
+            "大"
+          ]
+        },
+        "href": {
+          "type": "string",
+          "title": "跳转地址"
+        },
+        "target": {
+          "type": "string",
+          "title": "链接属性",
+          "enum": [
+            "_self",
+            "_blank"
+          ],
+          "enumNames": [
+            "本窗口打开",
+            "新窗口打开"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "title": "按钮类型",
+          "enum": [
+            "",
+            "primary",
+            "dashed",
+            "danger"
+          ],
+          "enumNames": [
+            "默认",
+            "主要",
+            "虚线",
+            "危险"
+          ]
+        },
+        "block": {
+          "type": "boolean",
+          "title": "是否自适应父容器宽度",
+          "default": false
+        },
+        "onClick": {
+          "type": "string",
+          "title": "点击回调代码",
+          "defaultCode": "() => {}"
+        }
+      }
+    },
+    "settings": {
+      "property": {
+        "settings": {
+          "text": {
+            "ui:placeholder": "请输入按钮文字"
+          },
+          "disabled": {
+            "ui:widget": "checkbox"
+          },
+          "size": {
+            "ui:widget": "select",
+            "ui:placeholder": "按钮尺寸"
+          },
+          "href": {
+            "ui:placeholder": "链接地址"
+          },
+          "target": {
+            "ui:widget": "select",
+            "ui:placeholder": "链接属性"
+          },
+          "type": {
+            "ui:widget": "select",
+            "ui:placeholder": "按钮类型"
+          },
+          "block": {
+            "ui:placeholder": "是否自适应父容器宽度",
+            "ui:widget": "checkbox"
+          },
+          "onClick": {
+            "ui:widget": "code"
+          }
+        },
+        "extend-field": {}
+      }
+    }
+  }
+}

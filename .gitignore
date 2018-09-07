@@ -1,0 +1,6 @@
+release/
+node_modules/
+.DS_Store
+.vscode/
+README.md
+build/

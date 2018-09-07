@@ -1,0 +1,19 @@
+<component name="Home">
+    <Card
+        title="Relim Demo"
+        bodyHeight="auto"
+        style={{
+            width: "100%"
+        }}
+    >
+    <p>这是Relim3.0结合RelimReactComponents的用例，主要涉及：</p>
+    <ul>
+    <li>Next基本组件的使用</li>
+    <li>NextForm结合NextField的使用</li>
+    <li>SchemaForm的使用</li>
+    <li>前端路由解决方案</li>
+    </ul>
+    <p></p>                
+    </Card>
+</component>
+<Home/>

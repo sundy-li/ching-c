@@ -1,0 +1,196 @@
+<component name="SchemaFormApp">
+  <Card
+      title="Relim Demo"
+      bodyHeight="auto"
+      style={{
+          width: "100%"
+      }}
+  >
+      <FormSchema
+          traverse={qverse($ => {
+              $("*")
+                  .itemProps({
+                      labelCol: 4
+                  })
+                  .required(true)
+              $("*", {
+                  include: (path, schema) =>
+                      (schema.type === "string" ||
+                          schema.type === "date") &&
+                      path.indexOf("friends") == -1
+              }).style({
+                  width: 400
+              })
+              $("*", {
+                  include: ["bust", "waistline", "hips"]
+              })
+                  .stateBy(() => {
+                      return $("male").value() === "female"
+                  })
+                  .then(schema => {
+                      return schema
+                  })
+              $("shoes")
+                  .stateBy(() => {
+                      return $("male").value() === "female"
+                  })
+                  .then(
+                      schema => {
+                          schema.enum = schema.enum.map(item => {
+                              item.disabled = true
+                              return item
+                          })
+                          return schema
+                      },
+                      schema => {
+                          return schema
+                      }
+                  )
+              $("home").default("杭州")
+          })}
+          schema={{
+              type: "object",
+              properties: {
+                  id: {
+                      type: "string",
+                      title: "用户ID"
+                  },
+                  name: {
+                      type: "string",
+                      title: "用户名称"
+                  }
+              }
+          }}
+          onSubmit={values => {
+              console.log(values)
+          }}
+      >
+          <Field
+              name="hidden"
+              type="string"
+              x-props={{
+                  htmlType: "hidden"
+              }}
+              default="123123"
+          />
+          <Field
+              name="age"
+              type="date"
+              title="年龄"
+              default="1991-11-30"
+          />
+          <Field name="school" type="string" title="班级" />
+          <Field
+              name="male"
+              type="string"
+              title="性别"
+              enum={[
+                  {
+                      label: "男",
+                      value: "male"
+                  },
+                  {
+                      label: "女",
+                      value: "female"
+                  }
+              ]}
+          />
+          <Field
+              name="shoes"
+              type="string"
+              title="最爱的篮球鞋"
+              enum={[
+                  {
+                      label: "nike",
+                      value: "nike"
+                  },
+                  {
+                      label: "adidass",
+                      value: "adidass"
+                  }
+              ]}
+          />
+          <Field
+              name="signature"
+              type="string"
+              title="个人签名"
+              x-props={{
+                  multiple: true,
+                  hasLimitHint: true,
+                  maxLength: 140
+              }}
+          />
+          <Field
+              type="string"
+              name="home"
+              title="家乡"
+              enum={[
+                  {
+                      label: "杭州",
+                      value: "杭州"
+                  },
+                  {
+                      label: "上海",
+                      value: "上海"
+                  },
+                  {
+                      label: "成都",
+                      value: "成都"
+                  }
+              ]}
+              x-component="radio"
+          />
+          <Field name="bust" type="number" title="胸围" />
+          <Field name="waistline" type="number" title="腰围" />
+          <Field name="hips" type="number" title="臀围" />
+          <Field
+              name="friends"
+              type="array"
+              x-props={{
+                  width: "100%"
+              }}
+              title="朋友"
+              x-component="table"
+          >
+              <Field type="object">
+                  <Field name="name" title="姓名" type="string" />
+                  <Field name="tel" title="电话" type="string" />
+                  <Field name="email" title="邮箱" type="string" />
+              </Field>
+          </Field>
+          <Field
+              name="shenfenzheng"
+              type="array"
+              title="身份证"
+              x-component="upload"
+              x-props={{
+                  help: <a href="">查看图例</a>,
+                  listType: "picture-card"
+              }}
+          />
+          <Field
+              name="License"
+              type="array"
+              title="资质文件"
+              x-component="upload"
+              x-props={{
+                  help: <a href="">下载模板</a>
+              }}
+          />
+          <Field name="other" x-component="Me" title="自定义组件" />
+          <FormButtonGroup offset={4}>
+              <Clear>清空</Clear>
+              <Submit type="primary">提交</Submit>
+              <Reset>重置</Reset>
+          </FormButtonGroup>
+      </FormSchema>
+  </Card>
+  <component name="CustomComp">这是一个自定义组件</component>
+  <relim-script>
+      var attachSchemaForm = require("attach-schema-form")
+      attachSchemaForm({
+        Me: CustomComp
+      })
+  </relim-script>
+</component>
+<SchemaFormApp />

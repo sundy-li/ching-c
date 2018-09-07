@@ -1,0 +1,5 @@
+<BizComponent />
+<br/>
+<Button onClick={()=>{
+  myScope()
+}}>click test scope</Button>

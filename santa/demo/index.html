@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>relim-react-components</title>
+  <link rel="stylesheet" type="text/css" href="//g.alicdn.com/mui/fusion/4.1.44/index-noreset.css" />
+</head>
+
+<body>
+  <div id="app">
+    <script src="//g.alicdn.com/relim/relim-react/3.0.0/index.umd.js">
+    </script>
+    <script src="//g.alicdn.com/relim/relim-react-components/3.0.0/index.umd.js"></script>
+    <script src="//g.alicdn.com/relim/relim-react-router/3.0.0/index.umd.js"></script>
+    <script src="/build/index.bundle.js"></script>
+    </script>
+    <script type="text/relim" id="template">
+            <HashRouter>
+                <div>
+                    <Route
+                        children={props => {
+                            const $match = to => {
+                                return matchPath(props.location.pathname, {
+                                    path: to,
+                                    exact: true
+                                })
+                            }
+                            return (
+                                <Nav direction="hoz">
+                                    <Nav.Item selected={$match( "/")} onClick={()=> { props.history.push("/") }} >Home</Nav.Item>
+                                    <Nav.Item selected={$match( "/form")} onClick={()=> { props.history.push("/form") }} >NextFormApp</Nav.Item>
+                                    <Nav.Item selected={$match( "/formschema")} onClick={()=> { props.history.push("/formschema") }}>SchemaFormApp</Nav.Item>
+                                    <Nav.Item selected={$match( "/biz")} onClick={()=> { props.history.push("/biz") }}>biz</Nav.Item>
+                                </Nav>
+                            )
+                        }}
+                    />
+                    <Route exact path="/" component={()=><include path="./home.relim" />} />
+                    <Route path="/form" component={()=><include path="./formApp.relim" />} />
+                    <Route path="/formschema" component={() => <include path="./schemaFormApp.relim"/>} />
+                    <Route path="/biz" component={() => <include path="./biz.relim" />} />
+                </div>
+            </HashRouter>
+        </script>
+    <script>
+        RelimReact.use(RelimReactComponents(), RelimReactRouter(), RelimReactComponents())
+        RelimReact.render(
+            document.getElementById("template").innerHTML,
+            "#app"
+        )
+    </script>
+  </div>
+</body>
+
+</html>
