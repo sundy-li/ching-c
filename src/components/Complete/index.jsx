@@ -13,15 +13,20 @@ const Option = AutoComplete.Option;
 // 自动完全组件
 class Complete extends Component {
   static propTypes = {
+    name : PropTypes.string,
     // 接口地址
     completeApi: PropTypes.string,
     placeholder: PropTypes.string,
+    styles: PropTypes.object,
+    onSelect : PropTypes.func,
   }
 
   static defaultProps = {
     // @TODO: 这里使用一个接口平台的模拟接口，请替换为自己的接口地址
+    name : '',
     completeApi: 'https://easy-mock.com/mock/58ff54b3739ac16852059e2a/example/complete',
-    placeholder : '请输入城市'
+    placeholder: '请输入城市',
+    styles: { width: 300, marginTop : 20}
   }
 
   constructor(props) {
@@ -29,7 +34,6 @@ class Complete extends Component {
 
     this.state = {
       dataSource: [],
-      param: "",
     };
   }
 
@@ -47,34 +51,32 @@ class Complete extends Component {
 
   handleSearch = (value) => {
     //complete api
-    Http.get(this.props.completeApi, {}).then((res) => {
+    Http.get(this.props.completeApi, { 'city' : value} ).then((res) => {
       console.log(res);
       this.setState({
-        dataSource: res.items,
+        dataSource: res,
       });
     });
   }
 
-  onSelect = (name, option) => {
-    console.log("on select" + name);
-    this.setState({ param: name });
-  }
+  // onSelect = (name, option) => {
+  //   console.log("on select" + name);
+  //   this.setState({ param: name });
+  // }
 
   render() {
     const { dataSource } = this.state;
     return (
-      <div className="global-search-wrapper" style={{ width: 300 }}>
-        
+      <div className="global-search-wrapper" style={this.props.styles}>
         <AutoComplete
           className="global-search"
           style={{ width: '100%' }}
           dataSource={dataSource.map(this.renderOption)}
-          onSelect={this.onSelect}
+          onSelect={this.props.onSelect}
           onSearch={this.handleSearch}
           placeholder={this.props.placeholder}
           optionLabelProp="text"
           >
-            
             <Input suffix={<Icon type="search" className="certain-category-icon" />} />
             </AutoComplete>
       </div>

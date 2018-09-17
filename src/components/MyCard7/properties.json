@@ -1,11 +1,11 @@
 {
-  "name": "Complete",
-  "dsl": "<Complete />",
+  "name": "MyCard7",
+  "dsl": "<MyCard7 />",
   "description": "",
   "schema": {
     "propsSchema": {
       "type": "object",
-      "title": "Complete",
+      "title": "MyCard7",
       "properties": {
         "text": {
           "type": "string",

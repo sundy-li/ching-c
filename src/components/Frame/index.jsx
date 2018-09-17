@@ -15,12 +15,12 @@ class Frame extends Component {
 
   static defaultProps = {
     src: 'http://www.weather.com.cn/',
-    width: '1600',
+    width: '100%',
     height: '1200',
     
     datas: [
       {name : '中国天气网', src : 'http://www.weather.com.cn/'},
-      {name : '墨迹天气', src : 'https://tianqi.moji.com/'},
+      {name : '墨迹天气', src : 'http://tianqi.moji.com/'},
       {name : '中国气象局', src : 'http://www.cma.gov.cn/2011qxfw/2011qtqyb/'},
     ]
   }

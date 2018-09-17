@@ -1,11 +1,11 @@
 {
-  "name": "Gl",
-  "dsl": "<Gl />",
+  "name": "PB",
+  "dsl": "<PB />",
   "description": "",
   "schema": {
     "propsSchema": {
       "type": "object",
-      "title": "Gl",
+      "title": "PB",
       "properties": {
         "text": {
           "type": "string",

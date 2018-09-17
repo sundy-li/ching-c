@@ -1,11 +1,11 @@
 {
-  "name": "Complete",
-  "dsl": "<Complete />",
+  "name": "MyTabs",
+  "dsl": "<MyTabs />",
   "description": "",
   "schema": {
     "propsSchema": {
       "type": "object",
-      "title": "Complete",
+      "title": "MyTabs",
       "properties": {
         "text": {
           "type": "string",

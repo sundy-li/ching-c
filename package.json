@@ -106,19 +106,20 @@
   },
   "license": "MIT",
   "dependencies": {
+    "abortcontroller-polyfill": "^1.1.9",
     "antd": "^3.8.0",
+    "babel-runtime": "^6.23.0",
     "chalk": "^2.4.1",
     "classnames": "^2.2.5",
-    "object-assign": "^4.1.1",
-    "prop-types": "^15.6.1",
-    "react-grid-layout": "^0.16.6",
-    "abortcontroller-polyfill": "^1.1.9",
-    "babel-runtime": "^6.23.0",
+    "echarts": "^4.0.2",
     "es6-promise": "^4.1.0",
     "fetch-jsonp": "^1.1.1",
+    "github-markdown-css": "^2.10.0",
     "isomorphic-fetch": "^2.2.1",
+    "object-assign": "^4.1.1",
+    "prop-types": "^15.6.1",
     "qs": "^6.4.0",
-    "echarts": "^4.0.2"
+    "react-grid-layout": "^0.16.6"
   },
   "engines": {
     "node": ">=8.10"
